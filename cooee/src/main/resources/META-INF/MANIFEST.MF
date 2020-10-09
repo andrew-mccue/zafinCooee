@@ -1,0 +1,41 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: xbiosystems
+Build-Jdk: 1.5.0_07
+Bundle-ManifestVersion: 2
+Bundle-Name: Cooee Osgi Plugin
+Bundle-SymbolicName: org.karora.cooee
+Bundle-Version: 0.2
+Bundle-Localization: plugin
+Export-Package: .,org.karora.cooee.app,org.karora.cooee.app.button,org
+ .karora.cooee.app.componentxml,org.karora.cooee.app.componentxml.prop
+ ertypeer,org.karora.cooee.app.event,org.karora.cooee.app.layout,org.k
+ arora.cooee.app.list,org.karora.cooee.app.menu,org.karora.cooee.app.t
+ able,org.karora.cooee.app.text,org.karora.cooee.app.update,org.karora
+ .cooee.app.util,org.karora.cooee.ng,org.karora.cooee.ng.able,org.karo
+ ra.cooee.ng.command,org.karora.cooee.ng.externalevent,org.karora.cooe
+ e.ng.history,org.karora.cooee.ng.image,org.karora.cooee.ng.layout,org
+ .karora.cooee.ng.list,org.karora.cooee.ng.model,org.karora.cooee.ng.p
+ rogressbar,org.karora.cooee.ng.richtext,org.karora.cooee.ng.styleshee
+ t,org.karora.cooee.ng.stylesheet.propertypeer,org.karora.cooee.ng.tab
+ bedpane,org.karora.cooee.ng.table,org.karora.cooee.ng.template,org.ka
+ rora.cooee.ng.text,org.karora.cooee.ng.tree,org.karora.cooee.ng.treet
+ able,org.karora.cooee.ng.ui.resource,org.karora.cooee.ng.ui.syncpeer,
+ org.karora.cooee.ng.ui.syncpeer.command,org.karora.cooee.ng.ui.templa
+ te,org.karora.cooee.ng.ui.util,org.karora.cooee.ng.ui.util.io,org.kar
+ ora.cooee.ng.util,org.karora.cooee.ng.util.collections,org.karora.coo
+ ee.ng.util.reflect,org.karora.cooee.ng.util.throwable,org.karora.cooe
+ e.ng.xhtml,org.karora.cooee.webcontainer,org.karora.cooee.webcontaine
+ r.command,org.karora.cooee.webcontainer.image,org.karora.cooee.webcon
+ tainer.partialupdate,org.karora.cooee.webcontainer.propertyrender,org
+ .karora.cooee.webcontainer.syncpeer,org.karora.cooee.webcontainer.uti
+ l,org.karora.cooee.webrender,org.karora.cooee.webrender.output,org.ka
+ rora.cooee.webrender.servermessage,org.karora.cooee.webrender.service
+ ,org.karora.cooee.webrender.util
+DynamicImport-Package: *
+Import-Package: javax.servlet,javax.servlet.http,org.osgi.framework;ve
+ rsion="1.3.0"
+Bundle-Vendor: Karora
+Bundle-Activator: org.karora.cooee.osgi.Activator
+

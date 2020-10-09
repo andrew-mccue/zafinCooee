@@ -1,0 +1,113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.karora</groupId>
+	<artifactId>cooee</artifactId>
+	<version>1.0.2</version>
+	<name>Cooee</name>
+	<packaging>jar</packaging>
+	<url>http://www.karora.org/projects/cooee</url>
+	<description>
+		Cooee is a Web UI framework that closely follows the Swing API
+		without the hassle of Javascript. This means that developers
+		with little to no web application experience can immediately
+		begin coding web applications with their existing Swing API
+		knowledge. The code base represents a combined fork of the Echo2
+		source code and associated projects
+	</description>
+
+	<scm>
+		<connection>scm:svn:http://svn.karora.org/repos/cooee/release/cooee-1.0.2</connection>
+		<developerConnection>scm:svn:http://svn.karora.org/repos/cooee/release/cooee-1.0.2</developerConnection>
+	</scm>
+
+	<parent>
+		<groupId>org.karora</groupId>
+		<artifactId>parent-pom</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.0-beta-4</version>
+				<configuration>
+					<tagBase>
+						http://svn.karora.org/repos/cooee/release
+					</tagBase>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifestFile>
+							META-INF/MANIFEST.MF
+						</manifestFile>
+					</archive>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>jspapi</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi_R4_core</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+
+	<distributionManagement>
+		<repository>
+			<id>ssh-repository</id>
+			<url>file:///var/www/open/maven-repository/</url>
+		</repository>
+		<snapshotRepository>
+			<id>local-snapshots</id>
+			<url>file:///var/www/open/maven-snapshots/</url>
+		</snapshotRepository>
+
+		<site>
+			<id>gbv-core-sites</id>
+			<url>file:///var/www/open/projects/cooee/</url>
+		</site>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<snapshots />
+			<id>local-snapshots</id>
+			<url>http://karora.org/maven-snapshots/</url>
+		</repository>
+		<repository>
+			<id>local-releases</id>
+			<url>http://karora.org/maven-repository/</url>
+		</repository>
+	</repositories>
+
+</project>
