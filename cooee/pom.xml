@@ -6,16 +6,57 @@
   <artifactId>cooee</artifactId>
   <version>1.0.9-SNAPSHOT</version>
   <scm>
-    <developerConnection>scm|git|git@bitbucket.org:zafinworks/cooee.git</developerConnection>
+    <developerConnection>scm|git|https://github.com/andrew-mccue/zafinCooee</developerConnection>
   </scm>
 
+  <properties>
+    <mirev.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss</mirev.build.timestamp.format>
+  </properties>
+  
   <build>
+      <sourceDirectory>target/filtered-sources/java</sourceDirectory>
+    <resources>
+      <resource>
+        <targetPath>../filtered-sources/java</targetPath>
+        <filtering>true</filtering>
+        <directory>src/main/java</directory>
+      </resource>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+    
+    <finalName>${project.artifactId}</finalName>
+    
     <plugins>
-			<plugin>
+    
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <version>1.4</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>create</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <buildNumberPropertyName>mirev.build.timestamp</buildNumberPropertyName>
+          <format>{0,date,${mirev.build.timestamp.format}}</format>
+          <items>
+            <item>timestamp</item>
+          </items>
+        </configuration>
+      </plugin>
+ 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>2.4</version>
 				<configuration>
+				<finalName>${project.artifactId}</finalName>
 					<archive>
 			            <!-- index>true</index -->
 			            <manifest>

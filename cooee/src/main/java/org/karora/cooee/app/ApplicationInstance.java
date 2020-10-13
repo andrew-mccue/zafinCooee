@@ -52,8 +52,17 @@ import org.karora.cooee.app.util.Uid;
 public abstract class ApplicationInstance 
 implements Serializable {
     
+	public final static String BUILD_TIMESTAMP = "${mirev.build.timestamp}";
+	
+	public final static String ZAFIN_COOEE_VERSION = "${pom.version}";
+	public final static String ZAFIN_COOEE_BUILD = "${mirev.build.timestamp}";
+	public final static String ZAFIN_COOEE_LIBRARY_VERSION = "ZAFIN COOEE VERSION:${pom.version}:BUILD DATE:${mirev.build.timestamp}";
+
+	
     /** The name and version of the Echo API in use. */
-    public static final String ID_STRING = "NextApp Echo v2.1.0.rc2";
+//    public static final String ID_STRING = "NextApp Echo v2.1.0.rc2";
+    
+    public static final String ID_STRING = ZAFIN_COOEE_LIBRARY_VERSION;
 
     public static final String FOCUSED_COMPONENT_CHANGED_PROPERTY = "focusedComponent";
     public static final String LOCALE_CHANGED_PROPERTY = "locale";
