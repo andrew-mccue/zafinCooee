@@ -2934,7 +2934,9 @@ EchoServerTransaction.invalidResponseHandler = function(conn) {
     } else {
     	/* JIRA SITE-340 (if  ..status == 0 ) is new code.; else (alert..) is the original code */
     	if( conn.xmlHttpRequest.status == 0 ){
-    		EchoClientEngine.processSessionExpiration();
+    		/*was EchoClientEngine.processSessionExpiration();*/
+    		alert("Authentiction Expired")
+    		window.location.reload();
     	}else{
     		alert("Invalid/unknown response from server:status[" + conn.xmlHttpRequest.status + "]:response["+  conn.getResponseText() + "]");
     	};
