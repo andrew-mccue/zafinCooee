@@ -2932,13 +2932,16 @@ EchoServerTransaction.invalidResponseHandler = function(conn) {
     } else if (conn.xmlHttpRequest.status == 400) {
         EchoClientEngine.processSessionExpiration();
     } else {
-    	/* JIRA SITE-340 (if  ..status == 0 ) is new code.; else (alert..) is the original code */
+    	/* JIRA SITE-340 (if  ..status == 0 ) is new code.; else {alert("Invalid/unknown..) is the original code */
     	if( conn.xmlHttpRequest.status == 0 ){
-    		/*was EchoClientEngine.processSessionExpiration();*/
-    		alert("Authentiction Expired")
-    		window.location.reload();
+    		EchoClientEngine.processSessionExpiration();
     	}else{
-    		alert("Invalid/unknown response from server:status[" + conn.xmlHttpRequest.status + "]:response["+  conn.getResponseText() + "]");
+    		if( conn.xmlHttpRequest.status == 403 ){
+    			alert("Authentiction Expired. Click OK to Re-Authenticate")
+    			window.location.reload();
+    		}else{
+    			alert("Invalid/unknown response from server:status[" + conn.xmlHttpRequest.status + "]:response["+  conn.getResponseText() + "]");
+    		}
     	};
 
     }
